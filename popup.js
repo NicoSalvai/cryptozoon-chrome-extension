@@ -1,6 +1,11 @@
 document.getElementById("submit").addEventListener('click',buttonClicked);
 document.getElementById("show-alerts").addEventListener('click',alarmLoaded);
+document.getElementById("cryptozoon-btn").addEventListener('click',openCryptoZoon);
 
+
+function openCryptoZoon(){
+    chrome.tabs.create({url: "https://app.cryptozoon.io/fight-monster"})
+}
 
 function alarmLoaded(){
     chrome.alarms.get("CRYPTO_ZOON_ALARM").then((alarm) => {
