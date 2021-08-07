@@ -16,8 +16,8 @@ chrome.alarms.onAlarm.addListener((alarm) => {
             title: 'You have a fight',
             message: 'You have at least a fight in CryptoZoon',
             priority: 1
-        //},() =>   chrome.tabs.create({url: "https://app.cryptozoon.io/fight-monster"}));
         });
+        chrome.notifications.onClicked.addListener((notificationId) => { chrome.tabs.create({url: "https://app.cryptozoon.io/fight-monster"})})
         chrome.alarms.clear("CRYPTO_ZOON_ALARM");
     }
 });

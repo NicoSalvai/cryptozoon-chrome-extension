@@ -5,8 +5,6 @@ document.getElementById("show-alerts").addEventListener('click',alarmLoaded);
 function alarmLoaded(){
     chrome.alarms.get("CRYPTO_ZOON_ALARM").then((alarm) => {
         document.getElementById("alert").innerHTML = "Next fight is in: " + minToHourAndMin((alarm.scheduledTime - new Date().getTime())/60000) + " hours";
-        console.log(alarm.scheduledTime)
-        //I'm in milliseconds, divide by 1000 for seconds
     })
 }
 
@@ -30,7 +28,6 @@ function gotTabs(tab,message,callback){
 
 function showZoansTimers(response){
     let data = JSON.parse(response);
-    console.log(data);
 
     let minutes = getMinFromArray(data.timers);
     
@@ -46,7 +43,6 @@ function getMinFromArray(array){
 }
 
 function minToHourAndMin(minuteCount){
-    console.log(minuteCount)
     let hour = Math.trunc(minuteCount/60);
     let minute = minuteCount - (hour*60);
     return "" + hour + ":" + Math.round(minute);
