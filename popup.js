@@ -1,7 +1,11 @@
 document.getElementById("submit").addEventListener('click',buttonClicked);
 document.getElementById("show-alerts").addEventListener('click',alarmLoaded);
 document.getElementById("cryptozoon-btn").addEventListener('click',openCryptoZoon);
+document.getElementById("github-btn").addEventListener('click',openGitlab);
 
+function openGitlab(){
+    chrome.tabs.create({url: "https://github.com/NicoSalvai/cryptozoon-chrome-extension"})
+}
 
 function openCryptoZoon(){
     chrome.tabs.create({url: "https://app.cryptozoon.io/fight-monster"})
